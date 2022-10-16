@@ -30,10 +30,10 @@ func main() {
 	// parse time limit
 
 	f, err := os.OpenFile(file, os.O_RDONLY, 0400)
-	defer f.Close()
 	if err != nil {
 		log.Fatalf("operation OpenFile error: %v", err)
 	}
+	defer f.Close()
 
 	reader := csv.NewReader(f)
 	rows, err := reader.ReadAll()
